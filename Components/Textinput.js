@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { TextInput , Button  } from 'react-native-paper';
-import { StyleSheet , View, Modal, FlatList} from 'react-native'
+import { StyleSheet , View, Modal} from 'react-native'
 import List from './List'
+
 
 class Textinput extends Component{
 
@@ -36,14 +37,15 @@ class Textinput extends Component{
     {
         this.setState({visible : true});
     }
-    
+
     render()
     {
         return(
             <React.Fragment>
             <Modal visible = {this.state.visible} animationType ='slide'>
                 <View style = {styles.mainview}>
-                    <TextInput            
+                    <TextInput
+                    autoFocus           
                     label='Add Item'
                     style = {styles.textinput}
                     mode = 'outlined'
