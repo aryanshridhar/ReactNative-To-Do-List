@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { TextInput , Button  } from 'react-native-paper';
-import { StyleSheet , View, Modal, FlatList} from 'react-native'
+import { StyleSheet , View, Modal} from 'react-native'
 import List from './List'
+
 
 class Textinput extends Component{
 
@@ -36,14 +37,32 @@ class Textinput extends Component{
     {
         this.setState({visible : true});
     }
-    
+
+    removeduplicate = (arraylist) =>
+    {
+        for(let i=0;i<arraylist.length ; i++)
+        {
+            let obj = arraylist[i];
+            for(let j = i+1; j<arraylist.length; j++)
+            {
+                if(arraylist[j].value.toLowerCase().trim() === obj.value.toLowerCase().trim())
+                {
+                    arraylist.splice(j,1)
+                }
+            }
+        }
+
+        return arraylist
+    }
+
     render()
     {
         return(
             <React.Fragment>
             <Modal visible = {this.state.visible} animationType ='slide'>
                 <View style = {styles.mainview}>
-                    <TextInput            
+                    <TextInput
+                    autoFocus           
                     label='Add Item'
                     style = {styles.textinput}
                     mode = 'outlined'
@@ -62,7 +81,8 @@ class Textinput extends Component{
             </Modal>
             <List 
             visible = {this.state.visible} 
-            list = {this.state.list} 
+            list = {this.removeduplicate(this.state.list)}
+            removeduplicate = {this.removeduplicate} 
             handlelistpress = {this.handlelistpress}
             handleaddpress = {this.handleaddpress}/>
             </React.Fragment>
