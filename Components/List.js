@@ -19,7 +19,6 @@ class List extends Component{
 
     modifypress = (new_value) =>
     {
-        console.log(this.props.list)
         for(let i = 0;i<this.props.list.length ; i++)
         {
             if(this.props.list[i].value === this.state.value)
@@ -41,7 +40,7 @@ class List extends Component{
             </View>
             <View>
                 <SwipeListView
-                    data={this.props.list}
+                    data={this.props.removeduplicate(this.props.list)}
                     renderItem={ (data) => (
                         <View style={styles.rowFront}>
                             <Text>{data.item.value}</Text>
