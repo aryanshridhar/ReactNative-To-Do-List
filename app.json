@@ -22,7 +22,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "To-Do-List"
+    },
+    "android": {
+      "package": "To-Do-List"
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }
