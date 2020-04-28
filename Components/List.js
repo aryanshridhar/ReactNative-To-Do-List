@@ -36,7 +36,7 @@ class List extends Component{
             <React.Fragment>
             <AddItem handleaddpress = {this.props.handleaddpress}/>
             <View style = {styles.pending}>
-                <Text>Pending {this.props.list.length} Tasks : </Text>
+                <Text>Pending {this.props.removeduplicate(this.props.list).length} Tasks : </Text>
             </View>
             <View>
                 <SwipeListView
